@@ -1,7 +1,6 @@
 {
     "name": "flactag-d",
     "description": "Library for reading and writing FLAC tags.",
-    "version": "0.1.0",
     "authors": [
         "Sorrow446"
     ],
@@ -10,3 +9,4 @@
     "targetType": "library",
     "importPaths": ["source"],
 }
+
