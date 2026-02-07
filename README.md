@@ -9,7 +9,7 @@ import flactag.objects : FlacTags, FlacPicture, FlacPictureType;
 
 FlacTag flac = new FlacTag(`G:\track.flac`);
 ```
-Opening a FLAC file.
+Opening a FLAC file. It is automatically closed when the FlacTag object goes out of scope.
 
 ## Examples
 #### Reading tags
