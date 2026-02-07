@@ -27,7 +27,7 @@ string[] comments = tags.getAll("COMMENT");
 FlacTags tags;
 tags.set("ALBUM", "my album");
 tags.setMany("COMMENT", ["com one", "com two"]);
-
+flac.writeTags(tags);
 ```
 
 #### Extracting pics
