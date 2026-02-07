@@ -12,7 +12,7 @@ FlacTag flac = new FlacTag(`G:\track.flac`);
 Opening a FLAC file.
 
 ## Examples
-### Reading tags
+#### Reading tags
 ```d
 FlacTags tags = flac.readTags();
 string album = tags.getFirst("ALBUM");
@@ -22,7 +22,7 @@ string title = tags.getFirst("TITLE");
 string[] comments = tags.getAll("COMMENT");
 ```
 
-### Writing tags
+#### Writing tags
 ```d
 FlacTags tags;
 tags.set("ALBUM", "my album");
@@ -30,7 +30,7 @@ tags.setMany("COMMENT", ["com one", "com two"]);
 
 ```
 
-### Extracting pics
+#### Extracting pics
 ```d
 FlacPicture[] pics = tags.getAllPictures();
 foreach (idx, pic; pics)
@@ -40,7 +40,7 @@ foreach (idx, pic; pics)
 }
 ```
 
-### Writing a pic
+#### Writing a pic
 ```d
 FlacTags tags;
 auto coverData = cast(ubyte[]) read("cover.jpg");
@@ -55,6 +55,22 @@ auto pic = FlacPicture(
 tags.addPicture(pic);
 flac.writeTags(tags);
 ```
+
+## Note
+```d
+version(Windows)
+{
+	import core.sys.windows.windows : GetConsoleOutputCP, SetConsoleOutputCP;
+}
+
+version(Windows)
+{
+  auto ccp = GetConsoleOutputCP();
+  SetConsoleOutputCP(65001);
+  scope(exit) SetConsoleOutputCP(ccp);
+}
+```
+D doesn't handle this so when printing Japanese/Korean etc tags on Windows in Command Prompt, you have to change your code page.
 
 ## Disclaimer
 flactag.d is stable, but you should still back up your tracks just in case.
