@@ -32,6 +32,7 @@ tags.setMany("COMMENT", ["com one", "com two"]);
 
 #### Extracting pics
 ```d
+FlacTags tags = flac.readTags();
 FlacPicture[] pics = tags.getAllPictures();
 foreach (idx, pic; pics)
 {
